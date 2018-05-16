@@ -1,3 +1,7 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
 <div xmlns:th="http://www.thymeleaf.org"
      style="border: 1px solid #ccc;padding:5px;margin-bottom:20px;">
 
@@ -16,3 +20,4 @@
     <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a>
 
 </div>
+</html>
