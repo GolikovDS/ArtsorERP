@@ -1,0 +1,22 @@
+
+
+
+.login_div{
+    padding-left: 30%;
+    font: normal 20pt Arial;
+}
+
+.login_input_text{
+    width: 150px;
+    height: 30px;
+    border-radius: 5px 5px 5px 5px;
+    background: #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.login_input_text:focus{
+    border-radius: 5px 5px 5px 5px;
+    border: red;
+    box-shadow: 0 0 10px rgba(255, 0, 11, 0.5);
+}
+
