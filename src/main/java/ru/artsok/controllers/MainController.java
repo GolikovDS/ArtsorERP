@@ -15,8 +15,8 @@ public class MainController {
 
     @RequestMapping(value = { "/", "/welcome" }, method = RequestMethod.GET)
     public String welcomePage(Model model) {
-        model.addAttribute("title", "Welcome it's git MyTestBranch");
-        model.addAttribute("message", "This is welcome page!");
+        model.addAttribute("title", "АРТСОК");
+        model.addAttribute("message", "Домашняя страница");
         return "welcomePage";
     }
 
@@ -42,10 +42,9 @@ public class MainController {
         return "logoutSuccessfulPage";
     }
 
-    @RequestMapping(value = "/userInfo", method = RequestMethod.GET)
+    @RequestMapping(value = "/products", method = RequestMethod.GET)
     public String userInfo(Model model, Principal principal) {
 
-        // After user login successfully.
         String userName = principal.getName();
 
         System.out.println("User Name: " + userName);
@@ -55,7 +54,7 @@ public class MainController {
         String userInfo = WebUtils.toString(loginedUser);
         model.addAttribute("userInfo", userInfo);
 
-        return "userInfoPage";
+        return "products";
     }
 
     @RequestMapping(value = "/403", method = RequestMethod.GET)
@@ -77,5 +76,8 @@ public class MainController {
 
         return "403Page";
     }
-
+    @RequestMapping(value = "/orders", method = RequestMethod.GET)
+    public String orders() {
+        return "orders";
+    }
 }

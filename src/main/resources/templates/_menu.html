@@ -1,17 +1,13 @@
-<div xmlns:th="http://www.thymeleaf.org" class="menu_body">
+<div xmlns:th="http://www.thymeleaf.org" class="menu-body">
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-    <a th:href="@{/}">Заказы</a>
-
-    | &nbsp;
-
-    <a th:href="@{/userInfo}">Изделия</a>
-
-    | &nbsp;
-
+    <div class="cursor-menu">
+        <a th:href="@{/orders}">Заказы</a>
+    </div>
+    <div class="cursor-menu">
+        <a th:href="@{/products}">Изделия</a>
+    </div>
     <a th:href="@{/admin}">Admin</a>
-
-    | &nbsp;
-
-    <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Выход</a>
-
+    <div class="cursor-menu">
+        <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Выход</a>
+    </div>
 </div>

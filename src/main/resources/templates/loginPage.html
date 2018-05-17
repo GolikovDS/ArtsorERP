@@ -8,12 +8,11 @@
 <!-- Include _menu.html -->
 <th:block th:include="/_menu"></th:block>
 
-<h1>Login</h1>
-<div class="login_div">
+<div class="login-div">
+    <h1>Вход</h1>
     <!-- /login?error=true -->
-    <div th:if="${#request.getParameter('error') == 'true'}"
-         style="color:red;margin:10px 0px;">
-        Login Failed!!!<br/>
+    <div th:if="${#request.getParameter('error') == 'true'}" style="color:red; margin:10px 0px;">Неверный
+        логин/пароль!!!<br/>
         Reason :
         <span th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
               th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">
@@ -25,18 +24,23 @@
         <table>
             <tr>
                 <td>Логин:</td>
-                <td><input type='text' name='username' value='' class="login_input_text"></td>
+                <td><input type='text' name='username' value='' class="login-input-text"></td>
             </tr>
             <tr>
                 <td>Пароль</td>
-                <td><input type='password' name='password' class="login_input_text"/></td>
+                <td><input type='password' name='password' class="login-input-text"/></td>
             </tr>
             <tr>
-                <td>Remember Me?</td>
-                <td><input type="checkbox" name="remember-me"/></td>
+                <td>Запомнить меня?</td>
+                <td>
+                    <!--<input class="checkbox_remember_me" type="checkbox" name="remember-me"/>-->
+                    <div class="switch_box box_1">
+                        <input type="checkbox" class="switch_1" name="remember-me">
+                    </div>
+                </td>
             </tr>
             <tr>
-                <td><input name="submit" type="submit" value="submit"/></td>
+                <td><input class="button-login" name="submit" type="submit" value="Вход"/></td>
             </tr>
         </table>
     </form>
