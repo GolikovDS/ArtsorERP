@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Info</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/designer.css}"/>
+</head>
+<body>
+<!-- Include _menu.html -->
+<th:block th:include="/_menu"></th:block>
+
+
+<h2>Страница конструктора</h2>
+
+<div class="product-div">
+    <table>
+        <tr>
+            <td><h3>Изделия</h3></td>
+            <td><a href="#openModal">Добавить</a></td>
+        </tr>
+    </table>
+    <p th:if="${error != ''}" style="color: red;" th:text="${error}">error!</p>
+    <nav>
+        <ul th:each="product : ${products}">
+            <li><a th:href="@{/designer(product=${product.id})}" th:utext="${product.name}"></a>
+                <p th:utext="${product.drawing}"></p></li>
+        </ul>
+
+    </nav>
+
+</div>
+
+<div class="select-product" th:object="${select_product}" th:if="${not #strings.isEmpty(select_product)}">
+    <p th:utext="*{id}">aa</p>
+    <p th:utext="*{name}">aa</p>
+
+</div>
+
+<!------------------------MODAL---------------------------------------------------------->
+<div id="openModal" class="modalDialog">
+    <div>
+        <form th:action="@{/add_product}" th:object="${newProduct}" method='POST'>
+            <a href="#close" title="Закрыть" class="close">X</a>
+            <h2>Добавить изделие</h2>
+            <table>
+                <tr>
+                    <td>Наименование изделия</td>
+                    <td><label>
+                        <input type="text" name="name">
+                    </label></td>
+                </tr>
+                <tr>
+                    <td>Чертеж</td>
+                    <td><label>
+                        <input type="text" name="drawing">
+                    </label></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Добавить"></td>
+                    <td></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<!---------------------------------------------------------------------------------------->
+
+</body>
+
+</html>

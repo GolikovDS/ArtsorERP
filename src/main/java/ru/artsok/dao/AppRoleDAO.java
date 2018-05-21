@@ -13,8 +13,12 @@ import java.util.List;
 @Transactional
 public class AppRoleDAO {
 
+    private final EntityManager entityManager;
+
     @Autowired
-    private EntityManager entityManager;
+    public AppRoleDAO(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
     public List getRoleNames(Long userId) {
         String sql = "Select ur.appRole.roleName from " + UserRole.class.getName() + " ur " //

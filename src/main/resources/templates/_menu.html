@@ -1,13 +1,21 @@
-<div xmlns:th="http://www.thymeleaf.org" class="menu-body">
+<ul xmlns:th="http://www.thymeleaf.org" class="menu-body">
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-    <div class="cursor-menu">
+    <li class="cursor-menu">
         <a th:href="@{/orders}">Заказы</a>
-    </div>
-    <div class="cursor-menu">
+    </li>
+    <li class="cursor-menu">
         <a th:href="@{/products}">Изделия</a>
-    </div>
-    <a th:href="@{/admin}">Admin</a>
-    <div class="cursor-menu">
+    </li>
+    <li class="cursor-menu"  th:if="${#request.isUserInRole('ROLE_ADMIN')}">
+        <a th:href="@{/admin}">Admin</a>
+    </li>
+    <li class="cursor-menu"  th:if="${#request.isUserInRole('ROLE_DESIGNER')}">
+        <a th:href="@{/designer}">Комплектация</a>
+    </li>
+    <li class="cursor-menu">
         <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Выход</a>
-    </div>
-</div>
+    </li>
+    <p th:if="${#request.userPrincipal != null}">Пользователь: <span th:text="${#request.remoteUser}"></span></p>
+</ul>
+
+

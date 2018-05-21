@@ -1,12 +1,12 @@
 body {
-    background: rgba(246, 246, 246, 0.08);
+    background: white;
     padding: 0;
     margin: 0;
 }
 
 .menu-body {
     margin-top: 25px;
-    background: #fff;
+    background: white;
     border: 1px solid #ccc;
     height: 80px;
     width: 100%;
@@ -17,13 +17,9 @@ body {
     padding-left: 150px;
     font-size:18pt;
     font-family: Arial, serif;
-    color: #0ebeff;
+    color: #8d00ff;
 }
 
-.cursor-menu{
-    width: 100px;
-    height: 100px;
-    background: rgba(255, 0, 0, 0.18);
-    margin-top: -5px;
-    margin-left: 20px;
+.menu-body li {
+    display: inline;
 }

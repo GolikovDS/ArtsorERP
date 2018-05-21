@@ -12,8 +12,13 @@ import javax.persistence.Query;
 @Repository
 @Transactional
 public class AppUserDAO {
+
+    private final EntityManager entityManager;
+
     @Autowired
-    private EntityManager entityManager;
+    public AppUserDAO(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
     public AppUser findUserAccount(String userName) {
         try {
