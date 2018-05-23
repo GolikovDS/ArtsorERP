@@ -6,7 +6,7 @@ import com.sun.javafx.beans.IDProperty;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "products")
+@Table(name = "Products")
 public class ProductEntity {
 
     @Id
@@ -19,6 +19,9 @@ public class ProductEntity {
 
     @Column(name = "drawing", length = 255)
     private String drawing;
+
+    @Column(name = "photo")
+    private byte[] photo;
 
     public Long getId() {
         return id;
@@ -43,4 +46,13 @@ public class ProductEntity {
     public void setDrawing(String drawing) {
         this.drawing = drawing;
     }
+
+    public byte[] getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
+    }
+
 }

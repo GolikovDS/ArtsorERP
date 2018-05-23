@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import ru.artsok.entity.ProductEntity;
 
 @Repository
-public interface ProductDAO extends CrudRepository<ProductEntity, Long> {
+public interface ProductCrudDAO extends CrudRepository<ProductEntity, Long> {
 }

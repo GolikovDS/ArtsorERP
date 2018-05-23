@@ -1,33 +1,26 @@
 package ru.artsok.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.resource.HttpResource;
-import ru.artsok.dao.ProductDAO;
-import ru.artsok.entity.ProductEntity;
+import ru.artsok.dao.ProductCrudDAO;
 import ru.artsok.utils.WebUtils;
 
-import javax.jws.WebParam;
 import java.security.Principal;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 @Controller
 public class MainController {
 
-    private final ProductDAO productDAO;
+    private final ProductCrudDAO productDAO;
 
     @Autowired
-    public MainController(ProductDAO productDAO) {
+    public MainController(ProductCrudDAO productDAO) {
         this.productDAO = productDAO;
     }
 
@@ -91,6 +84,9 @@ public class MainController {
                     break;
                 case "2":
                     model.addAttribute("error", "Ошибка: неверно введены данные!");
+                    break;
+                case "3":
+                    model.addAttribute("error", "Ошибка: файл слишком большой!");
                     break;
                 default:
                     model.addAttribute("error", "Ошибка!");

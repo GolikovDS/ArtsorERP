@@ -12,6 +12,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import ru.artsok.servis.UserDetailsServiceImpl;
 
 import javax.sql.DataSource;
@@ -94,5 +96,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         db.setDataSource(dataSource);
         return db;
     }
+
 
 }
