@@ -1,5 +1,8 @@
 <ul xmlns:th="http://www.thymeleaf.org" class="menu-body">
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <li class="cursor-menu"  th:if="${#request.isUserInRole('ROLE_ORDER')}">
+        <a th:href="@{/add_order}">Добавить заказ</a>
+    </li>
     <li class="cursor-menu">
         <a th:href="@{/orders}">Заказы</a>
     </li>
@@ -16,6 +19,7 @@
         <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Выход</a>
     </li>
     <p th:if="${#request.userPrincipal != null}">Пользователь: <span th:text="${#request.remoteUser}"></span></p>
+
 </ul>
 
 

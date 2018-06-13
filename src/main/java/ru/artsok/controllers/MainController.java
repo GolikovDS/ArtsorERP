@@ -8,20 +8,31 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import ru.artsok.dao.AliasCrudDAO;
+import ru.artsok.dao.AliasProductDAO;
 import ru.artsok.dao.ProductCrudDAO;
+import ru.artsok.entity.AliasEntity;
+import ru.artsok.entity.AliasProductEntity;
+
+
 import ru.artsok.utils.WebUtils;
 
 import java.security.Principal;
+import java.util.List;
 import java.util.Objects;
 
 @Controller
 public class MainController {
 
     private final ProductCrudDAO productDAO;
+    private final AliasCrudDAO aliasCrudDAO;
+    private final AliasProductDAO aliasProduct;
 
     @Autowired
-    public MainController(ProductCrudDAO productDAO) {
+    public MainController(ProductCrudDAO productDAO, AliasCrudDAO aliasCrudDAO, AliasProductDAO aliasProduct) {
         this.productDAO = productDAO;
+        this.aliasCrudDAO = aliasCrudDAO;
+        this.aliasProduct = aliasProduct;
     }
 
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
@@ -94,10 +105,17 @@ public class MainController {
             }
         }
         model.addAttribute("products", productDAO.findAll());
-        if (!product.equals(""))
+        if (!product.equals("")) {
             model.addAttribute("select_product", productDAO.findById(Long.parseLong(product)).get());
+            model.addAttribute("compositions", aliasProduct.getAliasInProduct(Long.parseLong(product)));
+        }
 
-        model.addAttribute("str", "String");
+        model.addAttribute("aliases", aliasCrudDAO.findAll());
         return "designer";
+    }
+
+    @RequestMapping(value = "/add_order", method = RequestMethod.GET)
+    public String addOrder() {
+        return "addOrder";
     }
 }

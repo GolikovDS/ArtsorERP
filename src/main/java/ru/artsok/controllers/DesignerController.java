@@ -43,7 +43,7 @@ public class DesignerController {
                              @RequestParam("file") MultipartFile file) {
         String errorUploadFile = "";
         if (!file.isEmpty()) {
-            if (file.getSize() < 2500000) {
+            if (file.getSize() < 10000000) {
                 try {
                     ProductEntity productEntity = productCrudDAO.findById(Long.parseLong(product)).get();
                     productEntity.setPhoto(file.getBytes());
@@ -73,5 +73,11 @@ public class DesignerController {
                 ex.printStackTrace();
             }
         }
+    }
+
+    @RequestMapping(value = "/remove_product", method = RequestMethod.POST)
+    public String remove(@RequestParam(value = "product", name = "")String product){
+        productCrudDAO.deleteById(Long.parseLong(product));
+        return "redirect:/designer";
     }
 }

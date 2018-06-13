@@ -1,11 +1,10 @@
-.product-div{
+.product-div {
     position: absolute;
-    padding-left: 10px;
+    left: 10px;
     width: 250px;
     height: 75%;
     border: 1px solid #0ebeff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-
 }
 
 .modalDialog {
@@ -15,7 +14,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.8);
     z-index: 99999;
     -webkit-transition: opacity 400ms ease-in;
     -moz-transition: opacity 400ms ease-in;
@@ -61,13 +60,62 @@
 
 }
 
-.close:hover { background: #ff5500; }
+.close:hover {
+    background: #ff5500;
+}
 
-.select-product{
+.select-product {
     position: absolute;
     width: 200px;
     height: 75%;
     left: 300px;
     border: 1px solid #0ebeff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.select-product img {
+    padding: 15px 5px;
+    width: 190px;
+    height: 150px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.select-product input[type="file"] {
+    font-size: 8px;
+    width: 150px;
+    height: 25px;
+}
+
+.select-product input[type="submit"] {
+    font-size: 12px;
+    width: 130px;
+    height: 20px;
+}
+
+.select-product p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#remove{
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+}
+
+.alias{
+    position: absolute;
+    left: 525px;
+    border: 1px solid #0ebeff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 50%;
+    height: 75%;
+}
+
+.table-id-alias{
+    width: 25px;
+}
+
+.table-name-alias{
+    width: 150px;
 }

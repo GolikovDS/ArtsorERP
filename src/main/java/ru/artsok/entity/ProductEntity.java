@@ -2,6 +2,9 @@ package ru.artsok.entity;
 
 
 import com.sun.javafx.beans.IDProperty;
+import lombok.Getter;
+import lombok.Setter;
+
 
 import javax.persistence.*;
 
@@ -10,7 +13,7 @@ import javax.persistence.*;
 public class ProductEntity {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
@@ -20,7 +23,9 @@ public class ProductEntity {
     @Column(name = "drawing", length = 255)
     private String drawing;
 
-    @Column(name = "photo")
+    @Getter
+    @Setter
+    @Column(name = "photo", length = 40000000)
     private byte[] photo;
 
     public Long getId() {

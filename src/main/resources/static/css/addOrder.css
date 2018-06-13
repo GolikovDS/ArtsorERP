@@ -1,0 +1,10 @@
+
+.input-div{
+    margin-left: 20px;
+    margin-right: 20px;
+    background: #cccccc;
+}
+
+.input-div table td{
+    width: 150px;
+}

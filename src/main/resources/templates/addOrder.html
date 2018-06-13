@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:utext="#{name-app}"></title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/addOrder.css}"/>
+</head>
+<body>
+<th:block th:include="/_menu"/>
+
+<div class="input-div">
+    <table>
+        <thead>
+        <tr>
+            <td>Номер заказа</td>
+            <td>Заказчик</td>
+            <td>Изделие</td>
+            <td>Количество</td>
+            <td>Сроки</td>
+            <td>Статус</td>
+            <td>Примечание</td>
+        </tr>
+        </thead>
+        <tr>
+            <td><label>
+                <input type="text"/>
+            </label></td>
+            <td>
+                <input type="text"/>
+            </td>
+            <td>
+                <select>
+                    <option value="0"> Выбор</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+
+                </select>
+            </td>
+            <td>
+                <input type="text"/>
+            </td>
+            <td>
+                <input type="text"/>
+            </td>
+            <td><input type="checkbox"/></td>
+            <td><input type="text"/></td>
+        </tr>
+    </table>
+
+
+</div>
+</body>
+</html>

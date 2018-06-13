@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>User Info</title>
+
+
     <link rel="stylesheet" type="text/css" th:href="@{/css/designer.css}"/>
 </head>
 <body>
@@ -29,22 +30,55 @@
 
 </div>
 
-<div class="select-product" th:object="${select_product}" th:if="${not #strings.isEmpty(select_product)}">
-    <p th:utext="*{id}">aa</p>
-    <p th:utext="*{name}">aa</p>
-    <p>Загрузить фото</p>
+<div class="select-product" th:if="${not #strings.isEmpty(select_product)}">
+
+    <img th:src="@{/dinamic_image(product=${select_product.id})}"/>
     <form th:action="@{/file_upload(product=${select_product.id})}" method="post" enctype="multipart/form-data">
         <table>
             <tr>
-                <td><b>File:</b></td>
+                <td><b>Фото:</b></td>
                 <td><input type="file" name="file"></td>
+            </tr>
+            <tr>
+                <td></td>
                 <td><input type="submit" value="загрузить файл"></td>
             </tr>
         </table>
     </form>
+    <!--<p>id изделия: [[*{id}]]</p>-->
+    <div th:object="${select_product}" >
+        <p>Изделие: [[*{name}]]</p>
+        <p>Чертеж: [[*{drawing}]]</p>
+    </div>
+    <p>Комплектация</p>
+    <table th:if="${compositions != null}">
+        <p>787</p>
+        <tr th:each="composition : ${compositions}">
+            <td>[[${composition.name}]]</td>
+        </tr>
+    </table>
 
-    <img th:src="@{/dinamic_image(product=${select_product.id})}" width="100" height="100"/>
+    <div id="remove">
+        <form th:action="@{/remove_product(product=${select_product.id})}" method="post">
+            <input type="submit" value="Удалить">
+        </form>
+    </div>
+</div>
 
+<div class="alias">
+    <h3>Комплектация по псевдонимам</h3>
+    <form>add</form>
+    <table>
+        <tr>
+            <th class="table-id-alias">id</th>
+            <th class="table-name-alias">Имя</th>
+        </tr>
+        <tr th:each="alias : ${aliases}">
+            <td th:utext="*{alias.id}"></td>
+            <td th:utext="*{alias.name}"></td>
+            <td><input type="checkbox"></td>
+        </tr>
+    </table>
 </div>
 
 <!------------------------MODAL---------------------------------------------------------->
